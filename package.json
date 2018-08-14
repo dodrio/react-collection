@@ -1,0 +1,80 @@
+{
+  "name": "react-collection",
+  "version": "0.0.0",
+  "description": "Collection of React components.",
+  "repository": "m31271n/react-collection",
+  "author": {
+    "name": "m31271n",
+    "email": "m31271n@pm.me",
+    "url": "stack.m31271n.com"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "preview": "start-storybook -p 9001 -c .storybook",
+    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "test": "jest",
+    "code-quality": "npm run lint && npm run test",
+    "build": "rm -rf dist && BABEL_ENV=production babel src -d dist",
+    "release": "npm run code-quality && npm run build && npm publish"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.47",
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.47",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "@babel/preset-react": "^7.0.0-beta.47",
+    "@storybook/addon-storyshots": "^3.4.7",
+    "@storybook/addons": "^3.4.7",
+    "@storybook/react": "^3.4.7",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^23.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.14.3",
+    "jest": "^23.1.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.12.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-test-renderer": "^16.4.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.{js,jsx}": [
+        "prettier --write",
+        "eslint",
+        "git add"
+      ],
+      "**/*.json": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "license": "MIT"
+}
